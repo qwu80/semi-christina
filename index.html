@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KC28TS4RKY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KC28TS4RKY');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 10: Carrier Statistics</title>
+
+  <link href="./style.css" rel="stylesheet" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.1/d3.min.js"></script>
+
+  <link rel="stylesheet" href="./anythingzoomer.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="./anythingZoomer.js"></script>
+
+
+  <script src="./scroll.js"></script>
+  <script src="./sketch.js"></script>
+  <script src="./circle.js"></script>
+  <script src="./graph.js"></script>
+  <script src="./particle.js"></script>
+  <script src="./particleM.js"></script>
+  <!-- <script src="./prob.js"></script> -->
+</head>
+
+<body id="body_parent" onload="StartScroll()">
+  <a href="../index.html"><img id="back-icon" src="../images/arrow-left.svg" /></a>
+  <div class="container">
+    <div class="row title-row">
+      <h1 class="col-lg-12">CARRIER STATISTICS</h1>
+      <div class="col-lg-1"></div>
+      <p class="col-lg-10">
+        As you saw in previous chapters, conductivity of a semiconductor highly depends on the carrier density. Qualitatively, we have seen how changing temperature or doping can affect the density of electrons and holes. Let’s look at the densities of electrons and holes more carefully and see what determines their values.
+      </p>
+      <div class="col-lg-1"></div>
+    </div>
+    <div class="row sub-atomic-particle-row" id="scene_0">
+      <div class="col-lg-4">
+        <h1>Density of States</h1>
+        <p>
+          The  valence and conduction bands contain a vast number of allowed energy levels. However, these energy states are quantized and there are a finite number of them in any given energy range. Hover over the vallance and conduction band to zoom in.
+        </p>
+
+        <p>
+          Can you calculate the number of energy states per unit energy (density of states) at various energy levels (e.g. around 0.7eV, 0.9eV, or -0.68 eV)?
+        </p>
+
+        <p>
+          Can you calculate roughly how many states exist in the energy range of 0.6eV-0.7eV?
+        </p>
+        <p>
+          Can you plot density of states versus energy.
+        </p>
+
+        <!-- <p>
+          Hover over the two bands to see how many electrons exist in each energy state.
+        </p> -->
+        <div class="row">
+          <div id="zoom">
+            <div class="small">
+              <svg id="d3-viz6-0" viewBox="0 0 500 500">
+
+              </svg>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- <p>Volume (cm<sup>3</sup>) : </p>  -->
+        <!-- <input style="width: 100%;" type="range" min="1" max="20" value="1" step = "1" onchange="setVolume(this.value)"> -->
+        <!-- <div class="sliderticks">
+          <p>1</p> -->
+          <!-- <p>5</p> -->
+          <!-- <p>10</p> -->
+          <!-- <p>15</p> -->
+          <!-- <p>20</p> -->
+
+        <!-- </div> -->
+      </div>
+    </div>
+
+
+
+    <div class="row sub-atomic-particle-row" id="scene_0_5">
+      <div class="col-lg-4">
+        <h1>Density of States</h1>
+        <p>
+          Change the volume and see how density of states changes.
+        </p>
+        <div class="row">
+          <div id="zoom05">
+            <div class="small">
+              <svg id="d3-viz6-0_5" viewBox="0 0 500 500">
+
+              </svg>
+
+            </div>
+
+          </div>
+        </div>
+        <!-- <p>
+          Hover over the two bands to see how many electrons exist in each energy state.
+        </p> -->
+
+        <p>Volume (cm<sup>3</sup>) : </p>
+        <input style="width: 100%;" type="range" min="1" max="20" value="1" step = "1" onchange="setVolume(this.value)">
+        <div class="sliderticks">
+          <p>1</p>
+          <!-- <p>5</p> -->
+          <p>10</p>
+          <!-- <p>15</p> -->
+          <p>20</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row sub-atomic-particle-row" id="scene_1">
+      <div class="col-lg-4">
+        <h1>Fermi Function </h1>
+        <p>
+          Each energy state can accommodate two electrons, one with spin up and one with spin down. At zero temperature, all vallance band energy levels are full (have two electrons) and all conduction band energy levels are empty (no electrons).  At non-zero temperature, however, some electrons in the vallance band get excited and go to the conduction band.
+        </p>
+
+        <p>
+          Can you calculate the probability of each state being occupied (Fermi Function)? What about the probability of having a hole?
+        </p>
+
+        <p>
+          Can you calculate roughly how many electrons occupy the energy states in the energy range of 0.6eV-0.7eV?
+        </p>
+
+        <p>
+          At what energy value the number of electrons in the zoomed box is the largest? What about holes?
+        </p>
+        <div class="row">
+          <!-- <div id="zoom2">
+
+            <div class="small">
+              <img src="https://css-tricks.github.io/AnythingZoomer/demo/rushmore_small.jpg" alt="small rushmore">
+            </div>
+
+            <div class="large">
+              <img src="https://css-tricks.github.io/AnythingZoomer/demo/rushmore.jpg" alt="big rushmore">
+            </div>
+
+          </div> -->
+          <div id="zoom1">
+            <div class="small">
+              <svg id="d3-viz6" viewBox="0 0 500 500">
+              </svg>
+            </div>
+          <!-- <div class="large">
+            <svg id="d3-viz6" viewBox="0 0 500 500">
+            </svg>
+            </div> -->
+
+          </div>
+        </div>
+
+        <p>
+          Change the temperature and see how the probabilities change.
+        </p>
+
+
+        <p>Temperature (K): </p>
+        <input style="width: 100%;" type="range" min="270" max="400" value="270" onchange="setTemperature(this.value)">
+        <div class="sliderticks">
+
+    
+          <p>270</p>
+          <p>310</p>
+          <p>350</p>
+          <p>400</p>
+        </div>
+
+        <input class="checkbox-freeze" type="checkbox" id="nuclei-freeze" name="te" value="te" onchange="resetGraph()">
+        <label for="te"> Show Probability Graph</label><br>
+
+      </div>
+    </div>
+
+
+    <div class="row classical-model-row" id="scene_2">
+      <div class="col-lg-4">
+        <h1>Add Donor</h1>
+        <p>
+          Dope the lattice with donor atoms and repeat what you did before. What happens to the fermi energy level?
+        </p>
+        <div class="row">
+          <div id="zoom2">
+            <div class="small">
+              <svg id="d3-viz6-2" viewBox="0 0 500 500">
+
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <p>Temperature (K): </p>
+        <input style="width: 100%;" type="range" min="270" max="400" value="270" onchange="setTemperature(this.value)">
+        <div class="sliderticks">
+
+          <p>270</p>
+          <p>310</p>
+          <p>350</p>
+          <p>400</p>
+        </div>
+        <p>Donor Density: (pair/cm<sup>3</sup>) <output type="text" id = "add_e_text" val = "Math.round(add_e(this.value))"></p>
+        <input style="width: 100%;" type="range" min="130" max="140" value="0"
+        onchange="add_e(this.value)"  >
+        <div class="sliderticks">
+          <div>
+            <p>10<sub>13</sub></p>
+          </div>
+          <div>
+            <p>10<sub>14</sub></p>
+          </div>
+        </div>
+
+        <input class="checkbox-freeze" type="checkbox" id="nn" name="te" value="te" onchange="resetGraph()">
+        <label for="te"> Show Probability Graph</label><br>
+
+      </div>
+    </div>
+
+
+    <div class="row graph-row" id="scene_3">
+      <div class="col-lg-4">
+        <h1>Add Acceptor</h1>
+        <p>
+          Dope the lattice with acceptor atoms and repeat what you did before. What happens to the fermi energy level?
+        </p>
+        <div class="row">
+          <div id="zoom3">
+            <div class="small">
+              <svg id="d3-viz6-3" viewBox="0 0 500 500">
+
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <p>Temperature (K): </p>
+        <input style="width: 100%;" type="range" min="270" max="400" value="270" onchange="setTemperature(this.value)">
+        <div class="sliderticks">
+
+          <p>270</p>
+          <p>310</p>
+          <p>350</p>
+          <p>400</p>
+        </div>
+        <p>Acceptor Density: (pair/cm<sup>3</sup>) <output type="text" id = "add_h_text" val = "Math.round(add_h(this.value))"> </p>
+        <input style="width: 100%;" type="range" min="130" max="140" value="0"
+        onchange="add_h(this.value)"  >
+        <div class="sliderticks">
+          <div>
+            <p>10<sub>13</sub></p>
+          </div>
+          <div>
+            <p>10<sub>14</sub></p>
+          </div>
+        </div>
+
+        <input class="checkbox-freeze" type="checkbox" id="kk" name="te" value="te" onchange="resetGraph()">
+        <label for="te"> Show Probability Graph</label><br>
+        <p>
+        </p>
+
+        <p>
+
+        </p>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="row graph-row" id="scene_3_end">
+      <div class="col-lg-4">
+        <h1>Ultralow Temperatures</h1>
+        <p>
+          The earlier cases, the temperature did not go below 100K. Let’s see what happens if we lower the temperature to very low values.
+        </p>
+        <p>
+          Change the temperature to observe the behavior of the added dopants.
+          Please wait a few more seconds between each change to ensure best results.
+      </p>
+        <div class="row">
+          <div id="zoom3_1">
+            <div class="small">
+              <svg id="d3-viz6-3-1" viewBox="0 0 500 500">
+
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <p>Temperature (K): </p>
+        <input style="width: 100%;" type="range" min="20" max="150" value="20" onchange="setTemperature(this.value)">
+        <div class="sliderticks">
+          <p>20</p>
+          <p>50</p>
+          <p>80</p>
+          <p>110</p>
+          <p>150</p>
+        </div>
+        <p>Donor Density: (pair/cm<sup>3</sup>) <output type="text" id = "add_e_text_2" val = "Math.round(add_e(this.value))"></p>
+        <input style="width: 100%;" type="range" min="130" max="140" value="0"
+        onchange="add_e(this.value)"  >
+        <div class="sliderticks">
+          <div>
+            <p>10<sub>13</sub></p>
+          </div>
+          <div>
+            <p>10<sub>14</sub></p>
+          </div>
+        </div>
+        <p>If the temperature is very low, not all dopants get ionized. In other words, the fifth electrons of many donor atoms won’t have enough energy to break free.</p>
+
+        <!-- <p>Acceptor Density: (pair/cm<sup>3</sup>)</p>
+        <input style="width: 100%;" type="range" min="0" max="140" value="0"
+        onchange="add_h(this.value)"  >
+        <div class="sliderticks">
+          <div>
+            <p>0</p>
+          </div>
+          <div>
+            <p>10<sub>14</sub></p>
+          </div>
+        </div> -->
+
+        <!-- <input class="checkbox-freeze" type="checkbox" id="kk" name="te" value="te" onchange="resetGraph()"> -->
+        <!-- <label for="te"> Show Probability Graph</label><br> -->
+        <p>
+        </p>
+
+        <p>
+
+        </p>
+
+      </div>
+    </div>
+
+
+
+    <div class="row graph-row" id="scene_4">
+      <div class="col-lg-4">
+        <h1>Movement of Holes</h1>
+        <p>
+          We consider the hole to be a positively charged carrier, and it moves freely in the lattice similar to the
+          free electron.
+        </p>
+        <p>
+          The motion of these two carriers is responsible for conduction in semiconductors.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- <div class="row graph-row" id="scene_5">
+      <div class="col-lg-4">
+        <h1>Scattering by Defects</h1>
+        <p>
+          In a perfect lattice, electrons and holes move freely in straight lines and nothing interfere with their
+          movement. However, any non-ideality such as replacement of an atom by another kind of atom (impurity), can
+          scatter electrons and holes. These impurities are called defects.
+        </p>
+        <p>
+          As we will see, scattering can also take place because of the vibration of the atoms at temperatures above 0K.
+        </p>
+      </div>
+    </div> -->
+
+
+    <!-- <div class="row graph-row" id="scene_6">
+      <div class="col-lg-4">
+        <h1>Electron-Hole Recombination</h1>
+        <p>
+          A free electron in the conduction band can return back to the vallance band filling an empty state. This way,
+          both the free electron and hole are annihilated. The lost energy may result in emission of a photon or it may
+          heat the lattice.
+        </p>
+
+        <svg id="d3-viz8">
+
+        </svg>
+        <p>
+          Click on the recombine button below to recombine the two charge carriers.
+        </p>
+      </div>
+    </div> -->
+
+
+
+    <!-- <div class="row graph-row" id="scene_7">
+      <div class="col-lg-4">
+        <h1>Thermal Generation and Scattering</h1>
+        <p>
+          Just like shining light, an electron can also get excited to the conduction band by the thermal energy of the
+          lattice. As one increases the temperature, the densities of electrons and holes increase drastically.
+        </p>
+        <p>
+          A higher temperature also means more lattice vibration; hence, more frequent carrier scatterings. Carriers
+          also move faster on average as temperature rises.
+        </p>
+        <p>Temperature (K): </p>
+        <input style="width: 100%;" type="range" min="0" max="300" value="0" onchange="setTemperature(this.value)">
+        <div class="sliderticks">
+          <p>0</p>
+          <p>75</p>
+          <p>150</p>
+          <p>225</p>
+          <p>300</p>
+        </div>
+        <input class="checkbox-freeze" type="checkbox" id="nuclei-freeze" name="te" value="te">
+        <label for="te"> Freeze Nuclei</label><br>
+        <input class="checkbox-freeze" type="checkbox" id="hole-freeze" name="ppr" value="ppr">
+        <label for="ppr">Freeze Holes</label><br>
+        <input class="checkbox-freeze" type="checkbox" id="electron-freeze" name="eer" value="eer">
+        <label for="eer"> Freeze Free Electrons</label><br>
+      </div>
+    </div> -->
+
+
+    <!-- <div class="row sub-atomic-particle-row" id="scene_8">
+      <div class="col-lg-4">
+        <h1>Conduction in Materials</h1>
+        <p>
+          In this manner, the band gap determines the conductivity of various materials.
+        </p>
+        <p>
+          Conductors don't have a band gap,so electrons can get excited even at 0K. Semi-conductors have moderate band
+          gaps, so they conduct at
+          higher temperatures. Insulators have very large band gaps, so they never conduct electricity.
+        </p>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </div>
+    </div> -->
+
+    <div id="visualization">
+
+    </div>
+  </div>
+</body>
+
+</html>
